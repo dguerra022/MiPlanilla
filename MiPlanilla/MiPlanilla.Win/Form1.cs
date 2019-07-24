@@ -16,18 +16,20 @@ namespace MiPlanilla.Win
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             var empleadosBL = new EmpleadosBL();
-
             var listadeEmpleados = empleadosBL.ObtenerEmpleados();
 
-            foreach (var empleado in listadeEmpleados)
-            {
-                MessageBox.Show(empleado.Nombre);
-            }
+            listadeEMpleadosBindingSource.DataSource = listadeEmpleados;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,29 +8,18 @@ namespace MiPlanilla.BL
 {
     public class EmpleadosBL
     {
+        Contexto _contexto;
+        public List<Empleado> ListadeEMpleados { get; set; }
+
+        public EmpleadosBL()
+        {
+            _contexto = new Contexto();
+            ListadeEMpleados = new List<Empleado>();
+        }
         public List<Empleado> ObtenerEmpleados()
         {
-            var empleado1 = new Empleado();
-            empleado1.Id = 1;
-            empleado1.Nombre = "Juan Perez";
-            empleado1.Salario = 12000;
-
-            var empleado2 = new Empleado();
-            empleado2.Id = 2;
-            empleado2.Nombre = "J. Pertino";
-            empleado2.Salario = 10000;
-
-            var empleado3 = new Empleado();
-            empleado3.Id = 3;
-            empleado3.Nombre = "Miguel Aleman";
-            empleado3.Salario = 13000;
-
-            var listadeEmpleados = new List<Empleado>();
-            listadeEmpleados.Add(empleado1);
-            listadeEmpleados.Add(empleado2);
-            listadeEmpleados.Add(empleado3);
-
-            return listadeEmpleados;
+            ListadeEMpleados = _contexto.Empleados.ToList();
+            return ListadeEMpleados;
         }
        
     }
